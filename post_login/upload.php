@@ -245,7 +245,7 @@ if ( isset($_POST['UploadForm']) && $uploadOK && $datasource == 'FileMaker') {
 	// use a FileMaker script to create the File record instead of PHP
 	// the script uses the "Insert from URL" step to insert the image into the container from the fileURL field
 
-		  $parameter = '$ID=' . $_SESSION['userID'] . '||$fileURL=' . $fileURL. '||$description=' . $_POST['description'][$f];
+		  $parameter = '$ID=' . $_SESSION['userID'] . '||$fileURL=' . $fileURL;
 
 		  $cmd = $fm->newPerformScriptCommand($tFile,'CreateFileRecord', $parameter);
 		  $result = $cmd->execute(); 
