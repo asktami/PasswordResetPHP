@@ -56,5 +56,3 @@ Also change all settings in **\_common/functions.php** and **cloudinary_settings
 ![password reset email sent](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/6_password_reset_email_sent.png)
 ![password reset email error](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/7_password_reset_error_email.png)
 ![reset password form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/8_reset_password_form.png)
-
-# PasswordResetPHP-
