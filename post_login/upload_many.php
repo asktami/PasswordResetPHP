@@ -33,7 +33,7 @@ echo '<hr>' ;
 // DELETE FILE *****************************************************
 // set variables
 $userID = $_SESSION["userID"] ;
-$description = isset($_POST["description"]) ? htmlentities($_POST["description"]) : '' ;
+// $description = isset($_POST["description"]) ? htmlentities($_POST["description"]) : '' ;
 $fileRecID = isset($_POST["fileRecID"]) ? htmlentities($_POST["fileRecID"]) : '' ;
 $fileURL = isset($_POST["fileURL"]) ? htmlentities($_POST["fileURL"]) : '' ;
 $filename = isset($_POST["filename"]) ? htmlentities($_POST["filename"]) : '' ;
