@@ -1,0 +1,156 @@
+/* 
+INSPIRED BY 
+
+# building a user registration system and secure password reset feature
+https://www.troyhunt.com/everything-you-ever-wanted-to-know/
+and
+http://megarush.net/forgot-password-php/
+and
+http://codetorq.blogspot.com/2013/05/php-forgot-password-tutorial.html?m=1
+and
+# using CodeIgniter
+http://michaelsoriano.com/building-a-user-registration-system-part-3-password-reset/
+
+
+# multiple file upload
+https://gist.github.com/N-Porsh/7766039
+
+
+# cloudinary file upload
+http://cloudinary.com/blog/file_upload_with_php#handling_file_upload_with_cloudinary
+
+
+# dynamic form rows
+https://bootsnipp.com/snippets/402bQ
+https://linkstraffic.net/appending-form-inputs-within-a-form-using-jquery/
+http://prog.linkstraffic.net/jquery/fill-form-rows-jquery-array.html
+*/
+
+Since this is a DEMO I capture the post and get parameters in the Log table and in the Log file  -- this means I capture the plaintext password and store it in those places, something that you should NOT do on a real web site.
+
+And, since this is a DEMO and for debugging purposes, I also store the plaintext password in a database field (password_plaintext) in the User table.  Again, this is something that you should NOT do on a real web site.
+
+
+ALTERNATIVE FILE PATHS:
+$fileURL = "file:///Volumes/Macintosh HD" . realpath($target_file) ;
+
+file:///Volumes/Macintosh HD/Library/WebServer/Documents/testPHP/PasswordResetPHP/post_login/uploads/certified_16_logo.jpeg
+			
+******************************
+MySQL PDOStatement->execute():
+
+success is the default, IF there is an error it will show you the regular error page that your application is showing for such an occasion
+
+
+MySQL PDO
+
+Get Single Record:
+$query->execute();
+$result = $query->fetch(PDO::FETCH_ASSOC);
+
+
+Get All Records:
+$query->execute();
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+Get Row Count (#affected rows) for SELECT, UPDATE, INSERT, DELETE queries:
+$query->execute();
+$found = $query->rowCount();
+
+ALSO
+$affected_rows = $db->exec("UPDATE table SET field='value'");
+echo $affected_rows.' were affected'
+
+
+Get Last Inserted ID:
+$query->execute();
+$insertId = $conn->lastInsertId();	//$conn from $query = $conn->prepare($sql);
+
+
+bindParam vs. bindValue:
+//  Since the query and the dynamic parameters are sent separately, there is no way that any SQL that is in those parameters can be executed - so NO SQL INJECTION can occur
+see:
+http://wiki.hashphp.org/PDO_Tutorial_for_MySQL_Developers
+https://stackoverflow.com/questions/1179874/what-is-the-difference-between-bindparam-and-bindvalue
+https://codereview.stackexchange.com/questions/45147/want-to-check-if-i-am-using-pdo-correctly
+
+
+PDO prepared statements and LIKE queries, must do this:
+$search = "%$search%";
+$stmt  = $pdo->prepare("SELECT * FROM table WHERE name LIKE ?");
+$stmt->execute([$search]);
+$data = $stmt->fetchAll();
+
+
+Prepared statements and IN clause, must do this:
+$arr = [1,2,3];
+$in  = str_repeat('?,', count($arr) - 1) . '?';
+$sql = "SELECT * FROM table WHERE column IN ($in)";
+$stm = $db->prepare($sql);
+$stm->execute($arr);
+$data = $stm->fetchAll();
+
+OR
+$arr = [1,2,3];
+$in  = str_repeat('?,', count($arr) - 1) . '?';
+$sql = "SELECT * FROM table WHERE foo=? AND column IN ($in) AND bar=? AND baz=?";
+$stm = $db->prepare($sql);
+$params = array_merge([$foo], $arr, [$bar, $baz]);
+$stm->execute($params);
+$data = $stm->fetchAll();
+
+OR
+// other parameters that are going into query
+$params = ["foo" => "foo", "bar" => "bar"];
+
+$ids = [1,2,3];
+$in = "";
+foreach ($ids as $i => $item)
+{
+    $key = ":id".$i;
+    $in .= "$key,";
+    $in_params[$key] = $item; // collecting values into key-value array
+}
+$in = rtrim($in,","); // :id0,:id1,:id2
+
+$sql = "SELECT * FROM table WHERE foo=:foo AND id IN ($in) AND bar=:bar";
+$stm = $db->prepare($sql);
+$stm->execute(array_merge($params,$in_params)); // just merge two arrays
+$data = $stm->fetchAll();
+
+
+	 
+------------------
+
+FileMaker
+
+Get Single Record:
+$query = $cmd->execute();
+$result = $query->getFirstRecord();
+
+
+Get All Records:
+$query = $cmd->execute();
+$result = $query->getRecords();
+
+
+Get Row Count (#affected rows) for SELECT, UPDATE, INSERT, DELETE queries:
+$query = $cmd->execute();
+$found = $query->getFoundSetCount();
+
+
+Get Last Inserted ID:
+$query = $cmd->execute();
+$recID = current($query->getRecords())->getRecordID();
+OR
+$recID = $query->getLastRecord()->getRecordID();
+
+
+Get Value from Field in Last Inserted Record:
+$query = $cmd->execute();
+$lastID = $query->getLastRecord()->getField('ID');
+
+
+Find using FileMaker's internal RecordID:
+$cmd = $fm->getRecordById(layout_name, recordID_value);
