@@ -43,18 +43,18 @@ Also change all settings in **\_common/functions.php** and **cloudinary_settings
 
 ## Screenshots
 
-![multiple field upload form](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/multiple_file_upload.png)
+![multiple field upload form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/multiple_file_upload.png)
 
-![registration pageflow](https://github.com/asktami/PasswordResetPHP/blob/master/__PAGEFLOWS/Registration_Pageflow.png)
-![reset password pageflow](https://github.com/asktami/PasswordResetPHP/blob/master/__PAGEFLOWS/Reset_Password_Pageflow.png)
+![registration pageflow](https://github.com/asktami/PasswordResetPHP/blob/main/__PAGEFLOWS/Registration_Pageflow.png)
+![reset password pageflow](https://github.com/asktami/PasswordResetPHP/blob/main/__PAGEFLOWS/Reset_Password_Pageflow.png)
 
-![registration form](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/1_registration_form.png)
-![login form](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/2_login_form.png)
-![forgot password form](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/3_forgot_password_form.png)
-![post login dashboard](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/4_post_login_dashboard.png)
-![password reset email](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/5_password_reset_email.png)
-![password reset email sent](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/6_password_reset_email_sent.png)
-![password reset email error](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/7_password_reset_error_email.png)
-![reset password form](https://github.com/asktami/PasswordResetPHP/blob/master/img/Screenshots/8_reset_password_form.png)
+![registration form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/1_registration_form.png)
+![login form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/2_login_form.png)
+![forgot password form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/3_forgot_password_form.png)
+![post login dashboard](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/4_post_login_dashboard.png)
+![password reset email](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/5_password_reset_email.png)
+![password reset email sent](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/6_password_reset_email_sent.png)
+![password reset email error](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/7_password_reset_error_email.png)
+![reset password form](https://github.com/asktami/PasswordResetPHP/blob/main/img/Screenshots/8_reset_password_form.png)
 
 # PasswordResetPHP-
